@@ -1,0 +1,109 @@
+nav {
+  padding: 1rem;
+  position: relative;
+  button {
+    border: none;
+    background: #fff;
+    .toggle-bars {
+      font-size: 2rem;
+      cursor: pointer;
+      color: #000;
+    }
+  }
+}
+
+.sidebar {
+  width: 0;
+  overflow: hidden;
+  height: 100vh;
+  background: linear-gradient(180deg, #2b0070 28.65%, #100029 82.29%);
+  color: #fff;
+  padding: 1rem 0;
+  position: fixed;
+  top: 0;
+  transition: 0.5s ease-in-out all;
+  z-index: 3;
+  .close-sidebar {
+    font-size: 2rem;
+    position: absolute;
+    right: 0;
+  }
+
+  .logo {
+    @include flexCC;
+  }
+  .search-container {
+    width: 100%;
+    @include flexCC;
+  }
+  &-search {
+    @include flex;
+    width: 80%;
+    margin: 0 auto;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 43px;
+    margin: 17px;
+    .search-icon {
+      font-size: 1.2rem;
+      color: #000;
+    }
+    input {
+      background: transparent;
+      border: none;
+      outline: none;
+      width: 90%;
+      padding-left: 0.5rem;
+    }
+  }
+  hr {
+    border: 1px solid #847f8b;
+  }
+  &.show {
+    width: 70%;
+  }
+}
+
+.sidebar .links {
+  padding-left: 1.3rem;
+
+  .link {
+    margin: 1rem 0;
+    transition: 0.3s linear ease-in-out;
+    h4 {
+      font-weight: 700;
+    }
+    &:hover {
+      border-bottom: 1px solid $secondaryColor;
+    }
+  }
+  .community-links {
+    margin-left: 1.3rem;
+    li {
+      margin: 0.8rem 0;
+      &:hover {
+        color: $secondaryColor;
+      }
+    }
+  }
+}
+
+.sidebar .mini-links {
+  margin-top: 2rem;
+  padding-left: 1.3rem;
+  li {
+    color: #847f8b;
+    margin: 0.8rem 0;
+    &:hover {
+      color: #fff;
+    }
+  }
+}
+
+.sidebar .buttons {
+  width: 100%;
+  @include flexCC;
+  flex-direction: column;
+  position: absolute;
+  bottom: 7rem;
+}

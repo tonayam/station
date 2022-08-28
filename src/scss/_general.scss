@@ -1,0 +1,125 @@
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.border {
+  border: 2px solid red;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  line-height: 1.5;
+  font-size: 0.875rem;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-transform: capitalize;
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.1rem;
+}
+
+h1 {
+  font-size: 3rem;
+}
+h2 {
+  font-size: 2rem;
+}
+h3 {
+  font-size: 1.25rem;
+}
+h4 {
+  font-size: 0.875rem;
+}
+p {
+  margin-bottom: 1.25rem;
+  font-weight: 300;
+}
+
+@media screen and (min-width: 800px) {
+  h1 {
+    font-size: 4rem;
+  }
+  h2 {
+    font-size: 2.5rem;
+  }
+  h3 {
+    font-size: 1.75rem;
+  }
+  h4 {
+    font-size: 1rem;
+  }
+  body {
+    font-size: 1rem;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    line-height: 1;
+    font-weight: 400;
+  }
+}
+
+/*  global classes */
+
+@media screen and (max-width: 767px) {
+  input,
+  select,
+  textarea {
+    font-size: 16px;
+  }
+}
+
+/* section */
+.section {
+  width: 90vw;
+  margin: 0 auto;
+  max-width: var(--max-width);
+}
+
+@media screen and (min-width: 992px) {
+  .section {
+    width: 95vw;
+  }
+}
+
+.btn {
+  cursor: pointer;
+  width: 80%;
+  padding: 1rem;
+  text-align: center;
+  background: transparent;
+  color: #fff;
+  margin: 1rem 0;
+  border: 1px solid #fff;
+}
+
+@media screen and (min-width: 800px) {
+  .btn {
+    margin: 0.5rem 0;
+  }
+}
+
+.gold-btn {
+  background: $secondaryColor;
+  border: none;
+}

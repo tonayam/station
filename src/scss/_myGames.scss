@@ -1,0 +1,126 @@
+.my-games {
+  &-nav {
+    display: flex;
+    padding: 2rem 0rem 1rem 0rem;
+
+    .add-game,
+    .filter {
+      @include flex;
+      margin: 0 1rem;
+      cursor: pointer;
+      &:hover {
+        color: $secondaryColor;
+      }
+      h4 {
+        margin-bottom: 0;
+        margin-left: 0.5rem;
+        font-size: 0.8rem;
+      }
+      .icon {
+        font-size: 1.4rem;
+      }
+    }
+  }
+
+  .my-games-container {
+    margin-top: 1rem;
+    padding: 0 0.5rem;
+    .game {
+      display: flex;
+      background: $primaryColor;
+      color: #ffffff;
+      align-items: center;
+      margin: 2rem 0;
+      .image {
+        width: 30%;
+        height: 100%;
+        margin-bottom: 0;
+        img {
+          height: 100%;
+          width: 100%;
+        }
+      }
+      .title {
+        margin: auto;
+        width: 70%;
+        h3 {
+          font-size: 1.1rem;
+        }
+      }
+    }
+  }
+}
+
+// MEDIA QUERIES
+
+@media screen and (max-width: 649px) {
+  .my-games-container {
+    .game {
+      .title {
+        padding-left: 1rem;
+        h3 {
+          font-size: 0.8rem;
+          margin-bottom: 0.5rem;
+        }
+        p {
+          font-size: 0.65rem;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 650px) and (max-width: 799px) {
+  .my-games {
+    &-nav {
+      .add-game,
+      .filter {
+        h4 {
+          font-size: 1.5rem;
+        }
+      }
+    }
+
+    .my-games-container {
+      padding: 0 2rem;
+      .game {
+        .image {
+          width: 25%;
+        }
+        .title {
+          h3 {
+            font-size: 1.7rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .my-games {
+    &-nav {
+      padding: 3rem 1rem 1rem 1rem;
+      .add-game,
+      .filter {
+        h4 {
+          font-size: 1.3rem;
+        }
+      }
+    }
+
+    .my-games-container {
+      padding: 0 2rem;
+      .game {
+        .image {
+          width: 25%;
+        }
+        .title {
+          h3 {
+            font-size: 2rem;
+          }
+        }
+      }
+    }
+  }
+}

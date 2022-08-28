@@ -1,0 +1,58 @@
+@media screen and (min-width: 300px) and (max-width: 389px) {
+  .sidebar .buttons {
+    bottom: 3rem;
+    button {
+      padding: 0.7rem;
+      margin: 0.5rem;
+    }
+  }
+}
+
+@media screen and (min-width: 800px) {
+  nav {
+    display: none;
+  }
+
+  .sidebar {
+    display: block;
+    width: 25%;
+    transform: translateX(0);
+
+    &-search {
+      padding: 0.8rem;
+    }
+    .close-sidebar {
+      display: none;
+    }
+  }
+
+  .sidebar .links {
+    .link {
+      margin: 1.5rem 0;
+    }
+    .community-links {
+      li {
+        margin: 0.6rem 0;
+      }
+    }
+  }
+  .sidebar .mini-links {
+    margin-top: 0.7rem;
+    padding-left: 1.3rem;
+    li {
+      margin: 0.5rem 0;
+    }
+  }
+
+  .content-container {
+    width: 75%;
+    position: absolute;
+    right: 0;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+}
+
+@media screen and (min-width: 1400px) {
+}

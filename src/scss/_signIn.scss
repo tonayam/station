@@ -1,0 +1,57 @@
+.section {
+  padding: 3rem 1rem;
+  height: 100vh;
+
+  .form-container {
+    width: 100%;
+    margin: auto;
+    background: #ffffff;
+    box-shadow: 0px 0px 15px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 20px;
+    margin-top: 1rem;
+    padding: 3rem 1rem 0.5rem 1rem;
+
+    .name-username {
+      display: flex;
+      justify-content: space-between;
+      .name,
+      .username {
+        width: 48%;
+      }
+    }
+
+    input {
+      height: 38px;
+      width: 100%;
+      padding: 1rem;
+    }
+    p {
+      margin-bottom: 4rem;
+    }
+    p span {
+      color: $secondaryColor;
+    }
+    .btn {
+      padding: 0.8rem;
+      width: 100%;
+      color: #000;
+      border: 1px solid #000;
+    }
+    .gold-btn {
+      color: #ffffff;
+      border: none;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .section {
+    .form-container {
+      width: 40%;
+      height: 90%;
+      padding: 3rem 3rem;
+    }
+  }
+}

@@ -1,0 +1,12 @@
+$primaryColor: #100029;
+$secondaryColor: #ff9921;
+
+@mixin flexCC {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@mixin flex {
+  display: flex;
+  align-items: center;
+}
