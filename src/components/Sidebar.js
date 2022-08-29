@@ -53,12 +53,12 @@ const Sidebar = () => {
         </div>
         <ul className='links'>
           <li className='link'>
-            <Link to='/'>
+            <Link to='/' onClick={() => setIsToggleOpen(!isToggleOpen)}>
               <h4>home</h4>
             </Link>
           </li>
           <li className='link'>
-            <Link to='/store'>
+            <Link to='/store' onClick={() => setIsToggleOpen(!isToggleOpen)}>
               <h4>store</h4>
             </Link>
           </li>
