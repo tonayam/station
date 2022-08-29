@@ -4,8 +4,7 @@ import Loading from "./Loading";
 import { useGlobalContext } from "./Context";
 const Games = () => {
   const [games, setGames] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const { searchTerm, setSearchTerm } = useGlobalContext();
+  const { searchTerm, setIsLoading, isLoading } = useGlobalContext();
 
   // FETCH GAMES FROM RAWG API
   const fetchGames = async () => {
@@ -23,7 +22,6 @@ const Games = () => {
         options
       );
       const data = await response.json();
-      console.log(data);
       const { results } = data;
       setGames(results);
       setIsLoading(false);

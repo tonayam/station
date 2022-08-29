@@ -9,6 +9,7 @@ import FAQ from "./pages/FAQ";
 import About from "./pages/About";
 import SingleGame from "./pages/SingleGame";
 import MyGames from "./pages/MyGames";
+import Store from "./pages/Store";
 
 function App() {
   return (
@@ -18,6 +19,10 @@ function App() {
           <Route exact path='/'>
             <Sidebar />
             <Body />
+          </Route>
+          <Route path='/store'>
+            <Sidebar />
+            <Store />
           </Route>
           <Route path='/sign-in'>
             <SignIn />

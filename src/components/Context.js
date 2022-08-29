@@ -6,6 +6,7 @@ const AppProvider = ({ children }) => {
   const [isUserActive, setIsUserActive] = useState(false);
   const [signIn, setSignIn] = useState(false);
   const [searchTerm, setSearchTerm] = useState(``);
+  const [isLoading, setIsLoading] = useState(true);
 
   const openRegisterPage = () => {
     setSignIn(true);
@@ -37,6 +38,8 @@ const AppProvider = ({ children }) => {
         userLoggedIn,
         searchTerm,
         setSearchTerm,
+        setIsLoading,
+        isLoading,
       }}
     >
       {children}

@@ -58,9 +58,9 @@ const Sidebar = () => {
             </Link>
           </li>
           <li className='link'>
-            <a href='#'>
+            <Link to='/store'>
               <h4>store</h4>
-            </a>
+            </Link>
           </li>
           {isUserActive && (
             <li className='link'>
