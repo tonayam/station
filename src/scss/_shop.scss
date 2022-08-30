@@ -48,9 +48,33 @@
   }
 
   .filters {
-    border: 2px solid orange;
     width: 20%;
     height: 100%;
+    padding-left: 2rem;
+    h4 {
+      margin-top: 1rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .layout-1,
+    .layout-2 {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-right: 1rem;
+      p {
+        margin-bottom: 0;
+        margin: 1rem 0;
+        cursor: pointer;
+        &:hover {
+          color: $secondaryColor;
+        }
+      }
+
+      .icon {
+        color: #d9d9d9;
+      }
+    }
   }
 }
 

@@ -1,13 +1,16 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import { Link } from "react-router-dom";
 import { useGlobalContext } from "../components/Context";
 import Loading from "../components/Loading";
+import { BsFillGridFill } from "react-icons/bs";
+import { BiCarousel } from "react-icons/bi";
+// import { FaChevronRight } from "react-icons/fa";
 
 const Shop = () => {
   const [shopGames, setShopGames] = useState([]);
-  const { isLoading, setIsLoading, searchTerm } = useGlobalContext();
+  const { isLoading, setIsLoading, searchTerm, games } = useGlobalContext();
 
-  const fetchShopGames = async () => {
+  const fetchShopGames = useCallback(async () => {
     setIsLoading(true);
     const options = {
       method: "GET",
@@ -29,14 +32,35 @@ const Shop = () => {
       console.log(error);
       setIsLoading(false);
     }
-  };
+  }, [searchTerm, setIsLoading]);
 
   React.useEffect(() => {
     fetchShopGames();
-  }, [searchTerm]);
+  }, [searchTerm, fetchShopGames]);
 
   if (isLoading) {
     return <Loading />;
+  }
+
+  if (searchTerm) {
+    return (
+      <section className='content-container shop'>
+        <section className='games-section'>
+          <h3 className='section-title'>searched Games</h3>
+          <div className='games-grid'>
+            {games.map((game) => {
+              const { id, name, background_image } = game;
+              return (
+                <div className='grid-item' key={id}>
+                  <img src={background_image} alt={name} />
+                  <h3>{name}</h3>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+      </section>
+    );
   }
 
   return (
@@ -57,7 +81,24 @@ const Shop = () => {
               );
             })}
           </div>
-          {window.innerWidth > 800 && <div className='filters'></div>}
+          {window.innerWidth > 800 && (
+            <div className='filters'>
+              <h4>LAYOUT</h4>
+              <hr />
+              <div className='layout-1'>
+                <p>Cards</p>
+                <BsFillGridFill className='icon' />
+              </div>
+              <div className='layout-2'>
+                <p>Carousel</p>
+                <BiCarousel className='icon' />
+              </div>
+              <h4>sort</h4>
+              <hr />
+              <h4>filter</h4>
+              <hr />
+            </div>
+          )}
         </main>
       </section>
     </>

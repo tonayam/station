@@ -1,7 +1,7 @@
 import React from "react";
 import Sidebar from "./components/Sidebar";
 import Body from "./components/Body";
-import SignIn from "./components/SignIn";
+import SignIn from "./pages/SignIn";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 // PAGES

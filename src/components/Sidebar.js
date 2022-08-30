@@ -53,12 +53,22 @@ const Sidebar = () => {
         </div>
         <ul className='links'>
           <li className='link'>
-            <Link to='/' onClick={() => setIsToggleOpen(!isToggleOpen)}>
+            <Link
+              to='/'
+              onClick={() =>
+                window.innerWidth < 800 && setIsToggleOpen(!isToggleOpen)
+              }
+            >
               <h4>home</h4>
             </Link>
           </li>
           <li className='link'>
-            <Link to='/store' onClick={() => setIsToggleOpen(!isToggleOpen)}>
+            <Link
+              to='/store'
+              onClick={() =>
+                window.innerWidth < 800 && setIsToggleOpen(!isToggleOpen)
+              }
+            >
               <h4>store</h4>
             </Link>
           </li>

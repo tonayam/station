@@ -1,21 +1,36 @@
-// SLIDER IMAGES
+// SLIDER IMAGES (LANDING PAGE)
 import hero1 from "./images/hero-1.png";
 import hero2 from "./images/hero-2.png";
 import hero3 from "./images/hero-3.png";
-import hero4 from "./images/hero-4.png";
-import hero5 from "./images/hero-5.png";
 
-// MY GAMES IMAGES
+// MY GAMES IMAGES (PROFILE PAGE)
 import htiman3 from "./images/hitman-3.png";
 import apexLegends from "./images/apex-legends.png";
 import starWars from "./images/star-wars.png";
 
 const sliderData = [
-  { id: 1, img: hero1 },
-  { id: 2, img: hero2 },
-  { id: 3, img: hero3 },
-  { id: 4, img: hero4 },
-  { id: 5, img: hero5 },
+  {
+    id: 1,
+    img: hero1,
+    text: `Pre-order your favourite upcoming 
+          games today`,
+    btn: `Go to store`,
+    link: `/store`,
+  },
+  {
+    id: 2,
+    img: hero2,
+    text: `Game and connect with an entire community of gamers worldwide.`,
+    btn: `Go to communities`,
+    link: `/communities`,
+  },
+  {
+    id: 3,
+    img: hero3,
+    text: `Find and purchase all your favourite games in one place.`,
+    btn: `Go to store`,
+    link: `/store`,
+  },
 ];
 
 const myGames = [

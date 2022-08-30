@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import logo2 from "../images/logo-2.png";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
-import { useGlobalContext } from "./Context";
+import { useGlobalContext } from "../components/Context";
 
 const SignIn = () => {
-  const [account, setAccount] = useState(false);
+  // const [account, setAccount] = useState(false);
   const { signIn, userLoggedIn } = useGlobalContext();
   console.log(signIn);
   return (
@@ -38,7 +38,7 @@ const SignIn = () => {
               <p>
                 Forgot your password?
                 <span>
-                  <a href='#'> Click here</a>
+                  <Link to=''>Click here</Link>
                 </span>
                 <button className='btn gold-btn'>Sign in</button>
                 <button className='btn'>
@@ -64,9 +64,8 @@ const SignIn = () => {
               <input type='password' /> <br /> <br />
               <p>
                 Forgot your password?
-                <span>
-                  <a href='#'> Click here</a>
-                </span>
+                <Link to=''>Click here</Link>
+                <span></span>
                 <Link to='/'>
                   <button className='btn gold-btn' onClick={userLoggedIn}>
                     Sign in

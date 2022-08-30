@@ -9,6 +9,7 @@ import "swiper/css/navigation";
 
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper";
+import { Link } from "react-router-dom";
 
 const HeroSlider = () => {
   const [heroImage, setHeroImage] = useState(sliderData);
@@ -27,10 +28,16 @@ const HeroSlider = () => {
         className='mySwiper'
       >
         {heroImage.map((slide) => {
-          const { id, img } = slide;
+          const { id, img, text, btn, link } = slide;
           return (
             <SwiperSlide key={id}>
               <img src={img} alt='' />
+              <div className='overlay'>
+                <p>{text}</p>
+                <Link to={link} className='btn'>
+                  {btn}
+                </Link>
+              </div>
             </SwiperSlide>
           );
         })}
