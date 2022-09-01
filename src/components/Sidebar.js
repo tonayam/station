@@ -37,7 +37,7 @@ const Sidebar = () => {
             <FaSistrix className='search-icon' />
             <input
               className='mobile-search'
-              type='text'
+              type='search'
               placeholder='Search games'
               ref={searchValue}
               onChange={searchGames}

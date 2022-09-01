@@ -1,5 +1,5 @@
 nav {
-  padding: 1rem;
+  padding: 0.5rem 1rem;
   position: fixed;
   top: 0;
   left: 0;
@@ -12,7 +12,7 @@ nav {
     border: none;
     background: none;
     .toggle-bars {
-      font-size: 2rem;
+      font-size: 1.5rem;
       cursor: pointer;
       color: #ffffff;
     }
@@ -38,7 +38,7 @@ nav {
     align-items: center;
   }
   .search-icon {
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: #ffffff;
   }
 }
