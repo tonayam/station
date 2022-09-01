@@ -41,7 +41,7 @@ const Shop = () => {
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0 });
-    document.title = `Station - Store`;
+    document.title = `Insidious - Store`;
   });
 
   useEffect(() => {

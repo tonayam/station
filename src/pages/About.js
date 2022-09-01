@@ -9,7 +9,7 @@ import articleTwo from "../images/article-2.png";
 const About = () => {
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0 });
-    document.title = `Station - About Us`;
+    document.title = `Insidious - About Us`;
   });
   return (
     <>

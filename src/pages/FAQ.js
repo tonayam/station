@@ -8,7 +8,7 @@ const FAQ = () => {
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0 });
-    document.title = `Station - FAQ`;
+    document.title = `Insidious - FAQ`;
   });
 
   const handleClick = (e) => {

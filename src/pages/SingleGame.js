@@ -19,6 +19,11 @@ const SingleGame = () => {
   const [screenshots, setScrenshots] = useState([]);
   const { id } = useParams();
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0 });
+    document.title = `Insidious - Game Details`;
+  });
+
   const fetchGame = useCallback(async () => {
     setIsLoading(true);
     const options = {
@@ -70,8 +75,6 @@ const SingleGame = () => {
   if (isLoading) {
     return <Loading />;
   }
-  console.log(game);
-  console.log(screenshots);
   const {
     description_raw,
     description,
@@ -138,7 +141,7 @@ const SingleGame = () => {
         <div className='tab'>
           <ul>
             <li className='active'>Overview</li>
-            <li>Decription</li>
+            <li>Description</li>
             <li>More</li>
           </ul>
         </div>
