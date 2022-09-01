@@ -1,13 +1,20 @@
 import React, { useState } from "react";
-import logo from "../images/logo.png";
+import logo from "../images/logo.svg";
 import { Link } from "react-router-dom";
 import { FaSistrix, FaBars, FaTimes } from "react-icons/fa";
 import { useGlobalContext } from "./Context";
 
 const Sidebar = () => {
   const [isToggleOpen, setIsToggleOpen] = useState(false);
-  const { isUserActive, openRegisterPage, openLoginPage, setSearchTerm } =
-    useGlobalContext();
+
+  const {
+    isUserActive,
+    openRegisterPage,
+    openLoginPage,
+    setSearchTerm,
+    isSearch,
+    setIsSearch,
+  } = useGlobalContext();
 
   const searchValue = React.useRef(``);
   const searchGames = () => {
@@ -23,6 +30,34 @@ const Sidebar = () => {
         >
           <FaBars className='toggle-bars' />
         </button>
+        <div
+          className={isSearch ? `search-container show` : `search-container`}
+        >
+          <div className='sidebar-search'>
+            <FaSistrix className='search-icon' />
+            <input
+              className='mobile-search'
+              type='search'
+              placeholder='Search games'
+              ref={searchValue}
+              onChange={searchGames}
+              onKeyPress={(e) => {
+                if (e.key === `Enter` && window.innerWidth < 800) {
+                  setIsSearch(!isSearch);
+                  this.blur();
+                }
+              }}
+            />
+          </div>
+        </div>
+        <div className='icon'>
+          {!isSearch && (
+            <FaSistrix
+              className='search-icon'
+              onClick={() => setIsSearch(!isSearch)}
+            />
+          )}
+        </div>
       </nav>
       <aside className={`${isToggleOpen ? `sidebar show` : `sidebar`}`}>
         <FaTimes
@@ -35,22 +70,25 @@ const Sidebar = () => {
             <img src={logo} alt='logo' className='sidebar-logo' />
           </Link>
         </div>
-        <div className='search-container'>
-          <div className='sidebar-search'>
-            <FaSistrix className='search-icon' />
-            <input
-              type='text'
-              placeholder='Search games'
-              ref={searchValue}
-              onChange={searchGames}
-              onKeyPress={(e) => {
-                if (e.key === `Enter` && window.innerWidth < 800) {
-                  setIsToggleOpen(!isToggleOpen);
-                }
-              }}
-            />
+        {window.innerWidth > 800 && (
+          <div className='search-container'>
+            <div className='sidebar-search'>
+              <FaSistrix className='search-icon' />
+              <input
+                type='text'
+                placeholder='Search games'
+                ref={searchValue}
+                onChange={searchGames}
+                onKeyPress={(e) => {
+                  if (e.key === `Enter` && window.innerWidth < 800) {
+                    setIsToggleOpen(!isToggleOpen);
+                  }
+                }}
+              />
+            </div>
           </div>
-        </div>
+        )}
+
         <ul className='links'>
           <li className='link'>
             <Link

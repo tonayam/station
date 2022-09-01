@@ -4,6 +4,9 @@ import { useGlobalContext } from "./Context";
 import UpcomingGames from "../home-Categories/UpcomingGames";
 import PopularCat from "../home-Categories/PopularCat";
 import EarlyAccess from "../home-Categories/EarlyAccess";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
+import { Link } from "react-router-dom";
 
 const Games = () => {
   const { searchTerm, isLoading, games } = useGlobalContext();
@@ -20,10 +23,12 @@ const Games = () => {
           {games.map((game) => {
             const { id, name, background_image } = game;
             return (
-              <div className='grid-item' key={id}>
-                <img src={background_image} alt={name} />
-                <h3>{name}</h3>
-              </div>
+              <Link to={`/game-details/${id}`}>
+                <div className='grid-item' key={id}>
+                  <LazyLoadImage src={background_image} alt={name} />
+                  <h3>{name}</h3>
+                </div>
+              </Link>
             );
           })}
         </div>

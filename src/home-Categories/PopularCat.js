@@ -11,6 +11,11 @@ import "swiper/css/pagination";
 // import required modules
 import { Pagination } from "swiper";
 
+// IMPORT LAZY LOADING
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
+import { Link } from "react-router-dom";
+
 const PopularCat = () => {
   const [popularGames1, setPopularGames1] = useState([]);
   const [popularGames2, setPopularGames2] = useState([]);
@@ -48,10 +53,12 @@ const PopularCat = () => {
           {popularGames1.map((game) => {
             const { id, name, background_image } = game;
             return (
-              <div className='grid-item' key={id}>
-                <img src={background_image} alt={name} />
-                <h3>{name}</h3>
-              </div>
+              <Link to={`/game-details/${id}`} className='link' key={id}>
+                <div className='grid-item'>
+                  <LazyLoadImage src={background_image} alt={name} />
+                  <h3>{name}</h3>
+                </div>
+              </Link>
             );
           })}
         </SwiperSlide>
@@ -59,10 +66,12 @@ const PopularCat = () => {
           {popularGames2.map((game) => {
             const { id, name, background_image } = game;
             return (
-              <div className='grid-item' key={id}>
-                <img src={background_image} alt={name} />
-                <h3>{name}</h3>
-              </div>
+              <Link to={`/game-details/${id}`} key={id} className='link'>
+                <div className='grid-item'>
+                  <LazyLoadImage src={background_image} alt={name} />
+                  <h3>{name}</h3>
+                </div>
+              </Link>
             );
           })}
         </SwiperSlide>

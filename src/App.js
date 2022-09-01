@@ -1,6 +1,6 @@
 import React from "react";
 import Sidebar from "./components/Sidebar";
-import Body from "./components/Body";
+import Home from "./pages/Home";
 import SignIn from "./pages/SignIn";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
@@ -18,7 +18,7 @@ function App() {
         <Switch>
           <Route exact path='/'>
             <Sidebar />
-            <Body />
+            <Home />
           </Route>
           <Route path='/store'>
             <Sidebar />
@@ -33,7 +33,8 @@ function App() {
           <Route path='/about-us'>
             <About />
           </Route>
-          <Route path='/game-details:id'>
+          <Route path='/game-details/:id'>
+            <Sidebar />
             <SingleGame />
           </Route>
           <Route path='/my-games'>

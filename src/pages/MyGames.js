@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Sidebar from "../components/Sidebar";
 import { BiPlusCircle } from "react-icons/bi";
 import { RiEqualizerLine } from "react-icons/ri";
 import { myGames } from "../data";
 
 const MyGames = () => {
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0 });
+    document.title = `Station - My Games`;
+  });
   return (
     <>
       <Sidebar />

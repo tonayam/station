@@ -8,6 +8,7 @@ const AppProvider = ({ children }) => {
   const [searchTerm, setSearchTerm] = useState(``);
   const [isLoading, setIsLoading] = useState(true);
   const [games, setGames] = useState([]);
+  const [isSearch, setIsSearch] = useState(false);
 
   // FETCH GAMES FROM RAWG API
   const fetchGames = useCallback(async () => {
@@ -71,6 +72,8 @@ const AppProvider = ({ children }) => {
         setIsLoading,
         isLoading,
         games,
+        isSearch,
+        setIsSearch,
       }}
     >
       {children}

@@ -1,14 +1,19 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useGlobalContext } from "../components/Context";
 import Loading from "../components/Loading";
-import { BsFillGridFill } from "react-icons/bs";
+import { BsFillGridFill, BsFilter } from "react-icons/bs";
 import { BiCarousel } from "react-icons/bi";
 // import { FaChevronRight } from "react-icons/fa";
 
+// IMPORT LAZY LOADING
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
+
 const Shop = () => {
   const [shopGames, setShopGames] = useState([]);
-  const { isLoading, setIsLoading, searchTerm, games } = useGlobalContext();
+  const { searchTerm, games } = useGlobalContext();
+  const [isLoading, setIsLoading] = useState(true);
 
   const fetchShopGames = useCallback(async () => {
     setIsLoading(true);
@@ -34,7 +39,12 @@ const Shop = () => {
     }
   }, [searchTerm, setIsLoading]);
 
-  React.useEffect(() => {
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0 });
+    document.title = `Station - Store`;
+  });
+
+  useEffect(() => {
     fetchShopGames();
   }, [searchTerm, fetchShopGames]);
 
@@ -51,10 +61,12 @@ const Shop = () => {
             {games.map((game) => {
               const { id, name, background_image } = game;
               return (
-                <div className='grid-item' key={id}>
-                  <img src={background_image} alt={name} />
-                  <h3>{name}</h3>
-                </div>
+                <Link to={`/game-details/${id}`} key={id} className='link'>
+                  <div className='grid-item'>
+                    <LazyLoadImage src={background_image} alt={name} />
+                    <h3>{name}</h3>
+                  </div>
+                </Link>
               );
             })}
           </div>
@@ -66,18 +78,21 @@ const Shop = () => {
   return (
     <>
       <section className='content-container shop'>
-        <h2 className='section-title'>Browse</h2>
+        <div className='title'>
+          <h2 className='section-title'>Browse</h2>
+          {window.innerWidth < 800 && <BsFilter className='icon' />}
+        </div>
         <main>
           <div className='games'>
             {shopGames.map((game) => {
               const { id, name, background_image } = game;
               return (
-                <div className='item' key={id}>
-                  <img src={background_image} alt={name} />
-                  <Link to={`/game-details`}>
+                <Link to={`/game-details/${id}`} key={id} className='link'>
+                  <div className='item'>
+                    <LazyLoadImage src={background_image} alt={name} />
                     <h3>{name}</h3>
-                  </Link>
-                </div>
+                  </div>
+                </Link>
               );
             })}
           </div>

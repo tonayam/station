@@ -2,6 +2,16 @@
   .section-title {
     padding: 2rem;
   }
+  .title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 1rem;
+    .icon {
+      font-size: 2rem;
+    }
+  }
+
   main {
     display: flex;
     height: 100%;

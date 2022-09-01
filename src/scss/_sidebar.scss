@@ -1,14 +1,45 @@
 nav {
   padding: 1rem;
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #2b0070;
+  z-index: 3;
+  display: flex;
+  justify-content: space-between;
   button {
     border: none;
-    background: #fff;
+    background: none;
     .toggle-bars {
       font-size: 2rem;
       cursor: pointer;
-      color: #000;
+      color: #ffffff;
     }
+  }
+  .search-container {
+    // width: 0;
+    overflow: hidden;
+    .sidebar-search {
+      margin: 0;
+      width: 100%;
+      overflow: hidden;
+      transform: translateX(100%);
+      transition: 0.3s ease-in-out all;
+    }
+
+    &.show .sidebar-search {
+      transform: translateX(0);
+    }
+  }
+
+  .icon {
+    display: flex;
+    align-items: center;
+  }
+  .search-icon {
+    font-size: 2rem;
+    color: #ffffff;
   }
 }
 
@@ -16,7 +47,7 @@ nav {
   z-index: 7;
   width: 0;
   overflow: hidden;
-  height: 100vh;
+  height: 100vh !important;
   background: linear-gradient(180deg, #2b0070 28.65%, #100029 82.29%);
   color: #fff;
   padding: 1rem 0;
@@ -106,5 +137,5 @@ nav {
   @include flexCC;
   flex-direction: column;
   position: absolute;
-  bottom: 7rem;
+  bottom: 0;
 }

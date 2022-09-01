@@ -4,6 +4,12 @@
     margin-bottom: 40px;
   }
 
+  .link {
+    .grid-item {
+      height: 100%;
+    }
+  }
+
   .upcoming,
   .early-access {
     height: 45vh;

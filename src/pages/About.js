@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Sidebar from "../components/Sidebar";
 import gamepad from "../images/gamepad.png";
 import community from "../images/community.png";
@@ -7,6 +7,10 @@ import articleOne from "../images/article-1.png";
 import articleTwo from "../images/article-2.png";
 
 const About = () => {
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0 });
+    document.title = `Station - About Us`;
+  });
   return (
     <>
       <Sidebar />

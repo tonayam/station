@@ -9,6 +9,12 @@ import { Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 
+// IMPORT LAZY LOADING
+
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
+import { Link } from "react-router-dom";
+
 const EarlyAccess = () => {
   const [earlyAccess, setEarlyAccess] = useState([]);
 
@@ -60,10 +66,12 @@ const EarlyAccess = () => {
             const { id, background_image, name } = game;
             return (
               <SwiperSlide className='upcoming' key={id}>
-                <div className='game'>
-                  <img src={background_image} alt={name} />
-                  <h3>{name}</h3>
-                </div>
+                <Link to={`/game-details/${id}`}>
+                  <div className='game'>
+                    <LazyLoadImage src={background_image} alt={name} />
+                    <h3>{name}</h3>
+                  </div>
+                </Link>
               </SwiperSlide>
             );
           })}
@@ -89,10 +97,12 @@ const EarlyAccess = () => {
             const { id, background_image, name } = game;
             return (
               <SwiperSlide className='early-access' key={id}>
-                <div className='game'>
-                  <img src={background_image} alt={name} />
-                  <h3>{name}</h3>
-                </div>
+                <Link to={`/game-details/${id}`}>
+                  <div className='game'>
+                    <LazyLoadImage src={background_image} alt={name} />
+                    <h3>{name}</h3>
+                  </div>
+                </Link>
               </SwiperSlide>
             );
           })}

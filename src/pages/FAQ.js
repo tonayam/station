@@ -1,10 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Sidebar from "../components/Sidebar";
 import { FaChevronRight } from "react-icons/fa";
 import { questions } from "../data";
 
 const FAQ = () => {
   const [activeQuestion, setActiveQuestion] = useState(false);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0 });
+    document.title = `Station - FAQ`;
+  });
 
   const handleClick = (e) => {
     const clicked = e.target.parentElement.nextElementSibling;

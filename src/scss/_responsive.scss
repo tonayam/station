@@ -8,6 +8,12 @@
   }
 }
 
+@media screen and (max-width: 759px) {
+  .content-container {
+    margin-top: 4.4rem;
+  }
+}
+
 @media screen and (min-width: 800px) {
   nav {
     display: none;
