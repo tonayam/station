@@ -45,7 +45,7 @@ const EarlyAccess = () => {
 
   return (
     <>
-      {window.innerWidth < 800 ? (
+      {window.innerWidth < 950 ? (
         <Swiper
           slidesPerView={2}
           spaceBetween={30}

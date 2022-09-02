@@ -8,57 +8,17 @@
   }
 }
 
-@media screen and (max-width: 759px) {
+@include for-tablet-potrait-up {
   .content-container {
-    margin-top: 4.4rem;
+    margin-top: 4.2rem;
   }
 }
 
-@media screen and (min-width: 800px) {
-  nav {
-    display: none;
-  }
-
-  .sidebar {
-    display: block;
-    width: 25%;
-    transform: translateX(0);
-
-    &-search {
-      padding: 0.8rem;
-    }
-    .close-sidebar {
-      display: none;
-    }
-  }
-
-  .sidebar .links {
-    .link {
-      margin: 1.5rem 0;
-    }
-    .community-links {
-      li {
-        margin: 0.6rem 0;
-      }
-    }
-  }
-  .sidebar .mini-links {
-    margin-top: 0.7rem;
-    padding-left: 1.3rem;
-    li {
-      margin: 0.5rem 0;
-    }
-  }
-
+@include for-desktop-up {
   .content-container {
     width: 75%;
     position: absolute;
     right: 0;
+    margin-top: 0;
   }
-}
-
-@media screen and (min-width: 1200px) {
-}
-
-@media screen and (min-width: 1400px) {
 }

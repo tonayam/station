@@ -42,7 +42,7 @@ const Sidebar = () => {
               ref={searchValue}
               onChange={searchGames}
               onKeyPress={(e) => {
-                if (e.key === `Enter` && window.innerWidth < 800) {
+                if (e.key === `Enter` && window.innerWidth < 1100) {
                   setIsSearch(!isSearch);
                   this.blur();
                 }
@@ -80,7 +80,7 @@ const Sidebar = () => {
                 ref={searchValue}
                 onChange={searchGames}
                 onKeyPress={(e) => {
-                  if (e.key === `Enter` && window.innerWidth < 800) {
+                  if (e.key === `Enter` && window.innerWidth < 950) {
                     setIsToggleOpen(!isToggleOpen);
                   }
                 }}
@@ -94,7 +94,7 @@ const Sidebar = () => {
             <Link
               to='/'
               onClick={() =>
-                window.innerWidth < 800 && setIsToggleOpen(!isToggleOpen)
+                window.innerWidth < 1100 && setIsToggleOpen(!isToggleOpen)
               }
             >
               <h4>home</h4>
@@ -104,7 +104,7 @@ const Sidebar = () => {
             <Link
               to='/store'
               onClick={() =>
-                window.innerWidth < 800 && setIsToggleOpen(!isToggleOpen)
+                window.innerWidth < 1100 && setIsToggleOpen(!isToggleOpen)
               }
             >
               <h4>store</h4>

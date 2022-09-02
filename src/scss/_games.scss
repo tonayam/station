@@ -12,13 +12,13 @@
 
   .upcoming,
   .early-access {
-    height: 45vh;
+    height: 40vh;
     .game {
       border: 1px solid #000000;
       height: 80%;
       cursor: pointer;
       h3 {
-        font-size: 0.8rem;
+        font-size: 0.6rem;
         margin-top: 0.8rem;
         padding: 0 0.5rem;
       }
@@ -86,96 +86,94 @@
   }
 }
 
-@media screen and (min-width: 650px) {
-  .games-section {
-    padding: 3rem 2rem;
-
-    .upcoming,
-    .early-access {
-      height: 60vh;
-      .game {
-        height: 80%;
-        h3 {
-          font-size: 0.8rem;
-          margin-top: 0.8rem;
-          padding: 0 0.5rem;
-        }
-        img {
-          height: 70%;
-        }
-      }
-    }
-
-    .pop-grid {
-      h3 {
-        font-size: 0.8rem;
-      }
-    }
-    .games-grid {
-      h3 {
-        font-size: 0.8rem;
-      }
-    }
-  }
+@include for-phone-only {
 }
 
-@media screen and (min-width: 800px) {
+@include for-tablet-potrait-up {
   .games-section {
-    padding: 3rem 2rem;
-
     .upcoming,
     .early-access {
-      height: 60vh;
+      height: 55vh;
       .game {
-        height: 90%;
-        h3 {
-          font-size: 1.5rem;
-        }
-        img {
-          height: 80%;
-        }
-      }
-    }
-
-    .pop-grid {
-      grid-template-columns: repeat(3, 1fr);
-      h3 {
-        font-size: 1.3rem;
-      }
-    }
-
-    .games-grid {
-      grid-gap: 20px;
-      grid-template-columns: repeat(2, 1fr);
-      h3 {
-        font-size: 1.3rem;
-      }
-    }
-
-    .early-access {
-      height: 60vh;
-      .game {
-        height: 90%;
         h3 {
           font-size: 1rem;
         }
-        img {
-          height: 80%;
+      }
+    }
+
+    .pop-grid {
+      h3 {
+        font-size: 1rem;
+      }
+    }
+
+    .games-grid {
+      h3 {
+        font-size: 1.5rem;
+      }
+
+      .grid-item {
+        h3 {
+          padding-left: 1rem;
         }
       }
     }
   }
 }
 
-@media screen and (min-width: 1200px) {
+@include for-tablet-landscape-up {
   .games-section {
-    .games-grid {
-      grid-template-columns: repeat(3, 1fr);
-      .grid-item {
-        height: 40vh;
+    .upcoming,
+    .early-access {
+      height: 40vh;
+      .game {
+        h3 {
+          font-size: 1.3rem;
+        }
+      }
+    }
+
+    .pop-grid {
+      h3 {
+        font-size: 1.3rem;
       }
     }
   }
+}
+
+@include for-desktop-up {
+  .games-section {
+    .upcoming,
+    .early-access {
+      height: 65vh;
+      .game {
+        h3 {
+          font-size: 1.3rem;
+        }
+      }
+    }
+
+    .pop-grid {
+      grid-template-columns: repeat(3, 1fr);
+
+      h3 {
+        font-size: 1rem;
+      }
+    }
+    .games-grid {
+      h3 {
+        font-size: 1.5rem;
+      }
+      .grid-item {
+        h3 {
+          padding-left: 1rem;
+        }
+      }
+    }
+  }
+}
+
+@include for-big-desktop-up {
 }
 
 .loading {
