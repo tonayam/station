@@ -12,7 +12,7 @@ import "react-lazy-load-image-component/src/effects/blur.css";
 
 const Shop = () => {
   const [shopGames, setShopGames] = useState([]);
-  const { searchTerm, games } = useGlobalContext();
+  const { searchTerm, games, setIsSearch } = useGlobalContext();
   const [isLoading, setIsLoading] = useState(true);
 
   const fetchShopGames = useCallback(async () => {
@@ -77,7 +77,10 @@ const Shop = () => {
 
   return (
     <>
-      <section className='content-container shop'>
+      <section
+        className='content-container shop'
+        onMouseOver={() => setIsSearch(false)}
+      >
         <div className='title'>
           <h2 className='section-title'>Browse</h2>
           {window.innerWidth < 800 && <BsFilter className='icon' />}

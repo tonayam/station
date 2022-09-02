@@ -1,6 +1,7 @@
 import React, { useState, useCallback, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Loading from "../components/Loading";
+import { useGlobalContext } from "../components/Context";
 
 // IMPORT LAZY LOADING
 import { LazyLoadImage } from "react-lazy-load-image-component";
@@ -15,6 +16,7 @@ import "swiper/css/pagination";
 
 const SingleGame = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const { setIsSearch } = useGlobalContext();
   const [game, setGame] = useState([]);
   const [screenshots, setScrenshots] = useState([]);
   const { id } = useParams();
@@ -94,7 +96,10 @@ const SingleGame = () => {
   };
 
   return (
-    <section className='content-container single-game'>
+    <section
+      className='content-container single-game'
+      onMouseOver={() => setIsSearch(false)}
+    >
       <section className='hero-image'>
         <LazyLoadImage src={background_image} alt={name} />
         <div className='mini-details'>

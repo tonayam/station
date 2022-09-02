@@ -7,7 +7,7 @@ const Home = () => {
   const { setIsSearch } = useGlobalContext();
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0 });
-    document.title = `Insidious - Home`;
+    document.title = `Insidious`;
   });
 
   return (
