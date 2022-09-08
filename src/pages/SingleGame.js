@@ -1,6 +1,7 @@
 import React, { useState, useCallback, useEffect } from "react";
-import { useParams } from "react-router-dom";
 import Loading from "../components/Loading";
+import Footer from "../components/Footer";
+import { useParams } from "react-router-dom";
 import { useGlobalContext } from "../components/Context";
 
 // IMPORT LAZY LOADING
@@ -218,6 +219,7 @@ const SingleGame = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </section>
   );
 };

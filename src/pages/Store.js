@@ -1,9 +1,11 @@
 import React, { useCallback, useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { useGlobalContext } from "../components/Context";
 import Loading from "../components/Loading";
+import Footer from "../components/Footer";
+import { Link } from "react-router-dom";
 import { BsFillGridFill, BsFilter } from "react-icons/bs";
 import { BiCarousel } from "react-icons/bi";
+import { useGlobalContext } from "../components/Context";
+
 // import { FaChevronRight } from "react-icons/fa";
 
 // IMPORT LAZY LOADING
@@ -118,6 +120,7 @@ const Shop = () => {
             </div>
           )}
         </main>
+        <Footer />
       </section>
     </>
   );

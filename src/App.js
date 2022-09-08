@@ -28,9 +28,11 @@ function App() {
             <SignIn />
           </Route>
           <Route path='/faq'>
+            <Sidebar />
             <FAQ />
           </Route>
           <Route path='/about-us'>
+            <Sidebar />
             <About />
           </Route>
           <Route path='/game-details/:id'>
@@ -38,6 +40,7 @@ function App() {
             <SingleGame />
           </Route>
           <Route path='/my-games'>
+            <Sidebar />
             <MyGames />
           </Route>
         </Switch>

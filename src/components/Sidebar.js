@@ -3,6 +3,7 @@ import logo from "../images/logo.svg";
 import { Link } from "react-router-dom";
 import { FaSistrix, FaBars, FaTimes } from "react-icons/fa";
 import { useGlobalContext } from "./Context";
+import HeroSlider from "./HeroSlider";
 
 const Sidebar = () => {
   const [isToggleOpen, setIsToggleOpen] = useState(false);
@@ -19,6 +20,9 @@ const Sidebar = () => {
   const searchValue = React.useRef(``);
   const searchGames = () => {
     setSearchTerm(searchValue.current.value);
+    if (setSearchTerm !== "") {
+      <HeroSlider className='d-none' />;
+    }
   };
 
   return (
@@ -112,7 +116,12 @@ const Sidebar = () => {
           </li>
           {isUserActive && (
             <li className='link'>
-              <Link to='/my-games'>
+              <Link
+                to='/my-games'
+                onClick={() =>
+                  window.innerWidth < 1100 && setIsToggleOpen(!isToggleOpen)
+                }
+              >
                 <h4>My games</h4>
               </Link>
             </li>
@@ -153,10 +162,24 @@ const Sidebar = () => {
 
         <ul className='mini-links'>
           <li>
-            <Link to='/about-us'>About</Link>
+            <Link
+              to='/about-us'
+              onClick={() =>
+                window.innerWidth < 1100 && setIsToggleOpen(!isToggleOpen)
+              }
+            >
+              About
+            </Link>
           </li>
           <li>
-            <Link to='/faq'>FAQ</Link>
+            <Link
+              to='/faq'
+              onClick={() =>
+                window.innerWidth < 1100 && setIsToggleOpen(!isToggleOpen)
+              }
+            >
+              FAQ
+            </Link>
           </li>
           <li>
             <a href='#'>Language Preference</a>

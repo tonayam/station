@@ -8,6 +8,12 @@
   }
 }
 
+@include for-phone-only {
+  .content-container {
+    margin-top: 4.2rem;
+  }
+}
+
 @include for-tablet-potrait-up {
   .content-container {
     margin-top: 4.2rem;

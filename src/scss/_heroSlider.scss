@@ -26,6 +26,10 @@
   }
 }
 
+.d-none {
+  display: none;
+}
+
 @include for-phone-only {
 }
 

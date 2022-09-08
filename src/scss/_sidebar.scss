@@ -136,7 +136,7 @@ nav {
   @include flexCC;
   flex-direction: column;
   position: absolute;
-  bottom: 0;
+  bottom: 30px;
 }
 
 @include for-phone-only {

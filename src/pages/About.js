@@ -5,16 +5,46 @@ import community from "../images/community.png";
 import serviceShield from "../images/service-shield.png";
 import articleOne from "../images/article-1.png";
 import articleTwo from "../images/article-2.png";
+import Footer from "../components/Footer";
+import { Link } from "react-router-dom";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import { useGlobalContext } from "../components/Context";
 
 const About = () => {
+  const { searchTerm, games } = useGlobalContext();
+
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0 });
     document.title = `Insidious - About Us`;
   });
+
+  if (searchTerm) {
+    return (
+      <section className='content-container about'>
+        <section className='games-section'>
+          <h3 className='section-title'>searched Games</h3>
+          <div className='games-grid'>
+            {games.map((game) => {
+              const { id, name, background_image } = game;
+              return (
+                <Link to={`/game-details/${id}`} key={id} className='link'>
+                  <div className='grid-item'>
+                    <LazyLoadImage src={background_image} alt={name} />
+                    <h3>{name}</h3>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+        </section>
+      </section>
+    );
+  }
+
   return (
     <>
       <Sidebar />
-      <section className='content-container'>
+      <section className='content-container about'>
         <section className='header'>
           <div className='hero-container'>
             <div className='text'>
@@ -73,6 +103,7 @@ const About = () => {
             </div>
           </article>
         </section>
+        <Footer />
       </section>
     </>
   );

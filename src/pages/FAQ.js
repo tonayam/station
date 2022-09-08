@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from "react";
-import Sidebar from "../components/Sidebar";
 import { FaChevronRight } from "react-icons/fa";
 import { questions } from "../data";
+import Footer from "../components/Footer";
+import { Link } from "react-router-dom";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import { useGlobalContext } from "../components/Context";
 
 const FAQ = () => {
   const [activeQuestion, setActiveQuestion] = useState(false);
+  const { searchTerm, games } = useGlobalContext();
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0 });
@@ -19,10 +23,32 @@ const FAQ = () => {
     prevSibling.classList.toggle(`invert`);
   };
 
+  if (searchTerm) {
+    return (
+      <section className='content-container faq'>
+        <section className='games-section'>
+          <h3 className='section-title'>searched Games</h3>
+          <div className='games-grid'>
+            {games.map((game) => {
+              const { id, name, background_image } = game;
+              return (
+                <Link to={`/game-details/${id}`} key={id} className='link'>
+                  <div className='grid-item'>
+                    <LazyLoadImage src={background_image} alt={name} />
+                    <h3>{name}</h3>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+        </section>
+      </section>
+    );
+  }
+
   return (
     <>
-      <Sidebar />
-      <section className='content-container'>
+      <section className='content-container faq'>
         {questions.map((question) => {
           const { id, quest, answer } = question;
           return (
@@ -37,6 +63,7 @@ const FAQ = () => {
             </article>
           );
         })}
+        <Footer />
       </section>
     </>
   );

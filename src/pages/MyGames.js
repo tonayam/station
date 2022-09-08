@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import Sidebar from "../components/Sidebar";
+import Footer from "../components/Footer";
 import { BiPlusCircle } from "react-icons/bi";
 import { RiEqualizerLine } from "react-icons/ri";
 import { myGames } from "../data";
@@ -42,6 +43,7 @@ const MyGames = () => {
             );
           })}
         </div>
+        <Footer />
       </section>
     </>
   );

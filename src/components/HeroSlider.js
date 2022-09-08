@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { sliderData } from "../data";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { useGlobalContext } from "./Context";
 
 // Import Swiper styles
 import "swiper/css";
@@ -12,10 +13,11 @@ import { Autoplay, Pagination, Navigation } from "swiper";
 import { Link } from "react-router-dom";
 
 const HeroSlider = () => {
+  const { searchTerm } = useGlobalContext();
   const [heroImage, setHeroImage] = useState(sliderData);
 
   return (
-    <section className='hero-slider'>
+    <section className={searchTerm ? `d-none` : "hero-slider"}>
       <Swiper
         spaceBetween={30}
         centeredSlides={true}

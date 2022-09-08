@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import HeroSlider from "../components/HeroSlider";
 import Games from "../components/Games";
+import Footer from "../components/Footer";
 import { useGlobalContext } from "../components/Context";
 
 const Home = () => {
@@ -17,6 +18,7 @@ const Home = () => {
     >
       <HeroSlider />
       <Games />
+      <Footer />
     </section>
   );
 };
