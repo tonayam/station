@@ -8,7 +8,7 @@ import { useGlobalContext } from "../components/Context";
 
 const FAQ = () => {
   const [activeQuestion, setActiveQuestion] = useState(false);
-  const { searchTerm, setSearchTerm, data } = useGlobalContext();
+  const { searchTerm, setIsSearch, setSearchTerm, data } = useGlobalContext();
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0 });
@@ -26,7 +26,10 @@ const FAQ = () => {
 
   if (searchTerm) {
     return (
-      <section className='content-container faq'>
+      <section
+        className='content-container faq'
+        onMouseOver={() => setIsSearch(false)}
+      >
         <section className='games-section'>
           <h3 className='section-title'>searched Games</h3>
           <div className='games-grid'>
@@ -49,7 +52,10 @@ const FAQ = () => {
 
   return (
     <>
-      <section className='content-container faq'>
+      <section
+        className='content-container faq'
+        onMouseOver={() => setIsSearch(false)}
+      >
         {questions.map((question) => {
           const { id, quest, answer } = question;
           return (

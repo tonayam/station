@@ -11,7 +11,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import { useGlobalContext } from "../components/Context";
 
 const About = () => {
-  const { searchTerm, setSearchTerm, data } = useGlobalContext();
+  const { searchTerm, setIsSearch, setSearchTerm, data } = useGlobalContext();
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0 });
@@ -21,7 +21,10 @@ const About = () => {
 
   if (searchTerm) {
     return (
-      <section className='content-container about'>
+      <section
+        className='content-container about'
+        onMouseOver={() => setIsSearch(false)}
+      >
         <section className='games-section'>
           <h3 className='section-title'>searched Games</h3>
           <div className='games-grid'>
@@ -45,7 +48,10 @@ const About = () => {
   return (
     <>
       <Sidebar />
-      <section className='content-container about'>
+      <section
+        className='content-container about'
+        onMouseOver={() => setIsSearch(false)}
+      >
         <section className='header'>
           <div className='hero-container'>
             <div className='text'>
