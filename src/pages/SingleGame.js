@@ -17,7 +17,7 @@ import "swiper/css/pagination";
 
 const SingleGame = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const { setIsSearch } = useGlobalContext();
+  const { setIsSearch, setSearchTerm } = useGlobalContext();
   const [game, setGame] = useState([]);
   const [screenshots, setScrenshots] = useState([]);
   const { id } = useParams();
@@ -25,7 +25,8 @@ const SingleGame = () => {
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0 });
     document.title = `Insidious - Game Details`;
-  });
+    setSearchTerm(``);
+  }, [setSearchTerm]);
 
   const fetchGame = useCallback(async () => {
     setIsLoading(true);
@@ -105,7 +106,7 @@ const SingleGame = () => {
         <LazyLoadImage src={background_image} alt={name} />
         <div className='mini-details'>
           <h2>{name}</h2>
-          <p className='desc'>{description_raw.substr(0, 300)}...</p>
+          <p className='desc'>{description_raw.substr(0, 200)}...</p>
           <div className='price-div'>
             <h3 className='price'>$39.99</h3>
             <div className='btns'>
@@ -124,9 +125,9 @@ const SingleGame = () => {
             className='mySwiper swiper-screenshots'
           >
             {screenshots.map((screenshot) => {
-              const { image } = screenshot;
+              const { image, id } = screenshot;
               return (
-                <SwiperSlide className='screenshot'>
+                <SwiperSlide className='screenshot' key={id}>
                   <LazyLoadImage src={image} alt={name} />
                 </SwiperSlide>
               );
@@ -135,9 +136,9 @@ const SingleGame = () => {
         ) : (
           <section className='screenshots'>
             {screenshots.map((screenshot) => {
-              const { image } = screenshot;
+              const { image, id } = screenshot;
               return (
-                <div className='screenshot'>
+                <div className='screenshot' key={id}>
                   <LazyLoadImage src={image} alt={name} />
                 </div>
               );
@@ -157,7 +158,7 @@ const SingleGame = () => {
             <h4>Genre</h4>
             <ul className='items'>
               {genres.map((genre) => {
-                return <li>{genre.name} </li>;
+                return <li key={genre.id}>{genre.name} </li>;
               })}
             </ul>
           </div>
@@ -177,7 +178,7 @@ const SingleGame = () => {
             <h4>Publisher</h4>
             <ul className='items'>
               {publishers.map((publisher) => {
-                return <li>{publisher.name} </li>;
+                return <li key={publisher.id}>{publisher.name} </li>;
               })}
             </ul>
           </div>
@@ -185,7 +186,7 @@ const SingleGame = () => {
             <h4>Developer</h4>
             <ul className='items'>
               {developers.map((developer) => {
-                return <li>{developer.name} </li>;
+                return <li key={developer.id}>{developer.name} </li>;
               })}
             </ul>
           </div>
@@ -206,9 +207,9 @@ const SingleGame = () => {
           <div className='info'>
             <ul className='items'>
               {platforms.map((item) => {
-                const { requirements } = item;
+                const { requirements, id } = item;
                 return requirements ? (
-                  <div className='req'>
+                  <div className='req' key={id}>
                     <p>{requirements.minimum}</p>
                     <br />
                     <p>{requirements.recommended}</p>

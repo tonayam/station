@@ -33,7 +33,7 @@ const EarlyAccess = () => {
       );
       const data = await response.json();
       const { results } = data;
-      setEarlyAccess(results.slice(0, 12));
+      setEarlyAccess(results);
     } catch (error) {
       console.log(error);
     }

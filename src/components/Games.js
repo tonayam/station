@@ -9,9 +9,9 @@ import "react-lazy-load-image-component/src/effects/blur.css";
 import { Link } from "react-router-dom";
 
 const Games = () => {
-  const { searchTerm, isLoading, games } = useGlobalContext();
+  const { searchTerm, loading, data } = useGlobalContext();
 
-  if (isLoading) {
+  if (loading) {
     return <Loading />;
   }
 
@@ -20,7 +20,7 @@ const Games = () => {
       <section className='games-section'>
         <h3 className='section-title'>searched Games</h3>
         <div className='games-grid'>
-          {games.map((game) => {
+          {data.map((game) => {
             const { id, name, background_image } = game;
             return (
               <Link to={`/game-details/${id}`}>

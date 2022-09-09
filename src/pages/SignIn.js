@@ -5,9 +5,7 @@ import { Link } from "react-router-dom";
 import { useGlobalContext } from "../components/Context";
 
 const SignIn = () => {
-  // const [account, setAccount] = useState(false);
   const { signIn, userLoggedIn } = useGlobalContext();
-  console.log(signIn);
   return (
     <>
       {signIn ? (
@@ -64,8 +62,9 @@ const SignIn = () => {
               <input type='password' /> <br /> <br />
               <p>
                 Forgot your password?
-                <Link to=''>Click here</Link>
-                <span></span>
+                <Link to='/forgot-password'>
+                  <span> Click here</span>
+                </Link>
                 <Link to='/'>
                   <button className='btn gold-btn' onClick={userLoggedIn}>
                     Sign in

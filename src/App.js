@@ -10,6 +10,7 @@ import About from "./pages/About";
 import SingleGame from "./pages/SingleGame";
 import MyGames from "./pages/MyGames";
 import Store from "./pages/Store";
+import ForgotPassword from "./pages/ForgotPassword";
 
 function App() {
   return (
@@ -26,6 +27,9 @@ function App() {
           </Route>
           <Route path='/sign-in'>
             <SignIn />
+          </Route>
+          <Route path='/forgot-password'>
+            <ForgotPassword />
           </Route>
           <Route path='/faq'>
             <Sidebar />

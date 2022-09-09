@@ -4,12 +4,15 @@ import Footer from "../components/Footer";
 import { BiPlusCircle } from "react-icons/bi";
 import { RiEqualizerLine } from "react-icons/ri";
 import { myGames } from "../data";
+import { useGlobalContext } from "../components/Context";
 
 const MyGames = () => {
+  const { setSearchTerm } = useGlobalContext();
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0 });
     document.title = `Station - My Games`;
-  });
+    setSearchTerm(``);
+  }, [setSearchTerm]);
   return (
     <>
       <Sidebar />

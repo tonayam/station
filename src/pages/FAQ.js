@@ -8,12 +8,13 @@ import { useGlobalContext } from "../components/Context";
 
 const FAQ = () => {
   const [activeQuestion, setActiveQuestion] = useState(false);
-  const { searchTerm, games } = useGlobalContext();
+  const { searchTerm, setSearchTerm, games } = useGlobalContext();
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0 });
     document.title = `Insidious - FAQ`;
-  });
+    setSearchTerm(``);
+  }, [setSearchTerm]);
 
   const handleClick = (e) => {
     const clicked = e.target.parentElement.nextElementSibling;

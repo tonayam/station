@@ -5,11 +5,12 @@ import Footer from "../components/Footer";
 import { useGlobalContext } from "../components/Context";
 
 const Home = () => {
-  const { setIsSearch } = useGlobalContext();
+  const { setIsSearch, setSearchTerm } = useGlobalContext();
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0 });
     document.title = `Insidious`;
-  });
+    setSearchTerm(``);
+  }, [setSearchTerm]);
 
   return (
     <section

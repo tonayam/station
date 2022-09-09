@@ -11,12 +11,13 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import { useGlobalContext } from "../components/Context";
 
 const About = () => {
-  const { searchTerm, games } = useGlobalContext();
+  const { searchTerm, setSearchTerm, games } = useGlobalContext();
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0 });
     document.title = `Insidious - About Us`;
-  });
+    setSearchTerm(``);
+  }, [setSearchTerm]);
 
   if (searchTerm) {
     return (

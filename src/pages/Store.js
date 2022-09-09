@@ -1,56 +1,30 @@
-import React, { useCallback, useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import Loading from "../components/Loading";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
 import { BsFillGridFill, BsFilter } from "react-icons/bs";
 import { BiCarousel } from "react-icons/bi";
 import { useGlobalContext } from "../components/Context";
-
-// import { FaChevronRight } from "react-icons/fa";
+import { useFetch } from "../useFetch";
 
 // IMPORT LAZY LOADING
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 
 const Shop = () => {
-  const [shopGames, setShopGames] = useState([]);
-  const { searchTerm, games, setIsSearch } = useGlobalContext();
-  const [isLoading, setIsLoading] = useState(true);
+  const { searchTerm, games, setIsSearch, setSearchTerm } = useGlobalContext();
 
-  const fetchShopGames = useCallback(async () => {
-    setIsLoading(true);
-    const options = {
-      method: "GET",
-      headers: {
-        "X-RapidAPI-Key": "d8a8ec5e46mshd5baca57a76d9b8p1aa97ejsna9f23e69f47c",
-        "X-RapidAPI-Host": "rawg-video-games-database.p.rapidapi.com",
-      },
-    };
-    try {
-      const response = await fetch(
-        `https://rawg-video-games-database.p.rapidapi.com/games?dates=2015-01-01,2022-12-31&ordering=-added&search=${searchTerm}&key=ed9b70acf638447bb6a289215bf7c6df`,
-        options
-      );
-      const data = await response.json();
-      const { results } = data;
-      setShopGames(results);
-      setIsLoading(false);
-    } catch (error) {
-      console.log(error);
-      setIsLoading(false);
-    }
-  }, [searchTerm, setIsLoading]);
+  const { loading, data } = useFetch(
+    `https://rawg-video-games-database.p.rapidapi.com/games?dates=2015-01-01,2022-12-31&ordering=-added&search=${searchTerm}&key=ed9b70acf638447bb6a289215bf7c6df`
+  );
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0 });
     document.title = `Insidious - Store`;
-  });
+    setSearchTerm(``);
+  }, [setSearchTerm]);
 
-  useEffect(() => {
-    fetchShopGames();
-  }, [searchTerm, fetchShopGames]);
-
-  if (isLoading) {
+  if (loading) {
     return <Loading />;
   }
 
@@ -89,7 +63,7 @@ const Shop = () => {
         </div>
         <main>
           <div className='games'>
-            {shopGames.map((game) => {
+            {data.map((game) => {
               const { id, name, background_image } = game;
               return (
                 <Link to={`/game-details/${id}`} key={id} className='link'>

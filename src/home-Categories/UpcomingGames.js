@@ -33,7 +33,7 @@ const UpcomingGames = () => {
       );
       const data = await response.json();
       const { results } = data;
-      setUpcomingGames(results.slice(0, 6));
+      setUpcomingGames(results.slice(0, 12));
     } catch (error) {
       console.log(error);
     }
