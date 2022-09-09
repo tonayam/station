@@ -21,8 +21,12 @@ footer {
           margin: 0.5rem 0;
         }
       }
-      &:last-child li {
-        font-weight: 600;
+      &:last-child {
+        grid-column: 1/3;
+        li {
+          font-weight: 600;
+          font-size: 11px;
+        }
       }
     }
   }
@@ -48,8 +52,13 @@ footer {
           display: flex;
           justify-content: center;
         }
-        &:last-child li {
-          font-weight: 400;
+
+        &:last-child {
+          grid-column: 3/3;
+          li {
+            font-weight: 400;
+            font-size: 15px;
+          }
         }
       }
     }

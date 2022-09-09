@@ -140,6 +140,9 @@ nav {
 }
 
 @include for-phone-only {
+  .sidebar .buttons {
+    bottom: 10%;
+  }
 }
 
 @include for-tablet-potrait-up {
@@ -172,6 +175,10 @@ nav {
         }
       }
     }
+  }
+
+  .sidebar .buttons {
+    bottom: 20%;
   }
 }
 

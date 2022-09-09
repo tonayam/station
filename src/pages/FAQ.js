@@ -8,7 +8,7 @@ import { useGlobalContext } from "../components/Context";
 
 const FAQ = () => {
   const [activeQuestion, setActiveQuestion] = useState(false);
-  const { searchTerm, setSearchTerm, games } = useGlobalContext();
+  const { searchTerm, setSearchTerm, data } = useGlobalContext();
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0 });
@@ -30,7 +30,7 @@ const FAQ = () => {
         <section className='games-section'>
           <h3 className='section-title'>searched Games</h3>
           <div className='games-grid'>
-            {games.map((game) => {
+            {data.map((game) => {
               const { id, name, background_image } = game;
               return (
                 <Link to={`/game-details/${id}`} key={id} className='link'>
