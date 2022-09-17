@@ -12,7 +12,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 
 const Shop = () => {
-  const { searchTerm, games, setIsSearch, setSearchTerm } = useGlobalContext();
+  const { searchTerm, setIsSearch, setSearchTerm } = useGlobalContext();
 
   const { loading, data } = useFetch(
     `https://rawg-video-games-database.p.rapidapi.com/games?dates=2015-01-01,2022-12-31&ordering=-added&search=${searchTerm}&key=ed9b70acf638447bb6a289215bf7c6df`
@@ -34,7 +34,7 @@ const Shop = () => {
         <section className='games-section'>
           <h3 className='section-title'>searched Games</h3>
           <div className='games-grid'>
-            {games.map((game) => {
+            {data.map((game) => {
               const { id, name, background_image } = game;
               return (
                 <Link to={`/game-details/${id}`} key={id} className='link'>
