@@ -1,10 +1,10 @@
 import React from "react";
-import loadingSpinner from "../images/loading-spinner.gif";
+import loader from "../images/loader.gif";
 
 const Loading = () => {
   return (
     <section className='loading'>
-      <img src={loadingSpinner} alt='loading spinner' />
+      <img src={loader} alt='loader' />
     </section>
   );
 };

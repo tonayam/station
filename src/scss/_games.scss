@@ -185,6 +185,19 @@
   height: 100vh;
   @include flexCC;
   img {
-    width: 30%;
+    width: 40%;
+    animation: bounce 4s linear infinite;
+  }
+}
+
+@keyframes bounce {
+  from {
+    left: 0px;
+    top: 0px;
+  }
+
+  to {
+    left: 0px;
+    top: 20px;
   }
 }
