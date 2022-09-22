@@ -94,7 +94,7 @@
   }
 }
 
-@media screen and (min-width: 650px) {
+@include for-tablet-potrait-up {
   .shop {
     .section-title {
       padding: 2rem;
@@ -112,7 +112,7 @@
   }
 }
 
-@media screen and (min-width: 800px) {
+@include for-desktop-up {
   .shop {
     .section-title {
       padding: 2rem;

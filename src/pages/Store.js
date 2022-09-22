@@ -59,7 +59,7 @@ const Shop = () => {
       >
         <div className='title'>
           <h2 className='section-title'>Browse</h2>
-          {window.innerWidth < 800 && <BsFilter className='icon' />}
+          {window.innerWidth > 900 && <BsFilter className='icon' />}
         </div>
         <main>
           <div className='games'>
@@ -75,7 +75,7 @@ const Shop = () => {
               );
             })}
           </div>
-          {window.innerWidth > 800 && (
+          {window.innerWidth > 900 && (
             <div className='filters'>
               <h4>LAYOUT</h4>
               <hr />
