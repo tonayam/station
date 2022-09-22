@@ -70,7 +70,12 @@ const Sidebar = () => {
         />
 
         <div className='logo'>
-          <Link to='/'>
+          <Link
+            to='/'
+            onClick={() =>
+              window.innerWidth < 1100 && setIsToggleOpen(!isToggleOpen)
+            }
+          >
             <img src={logo} alt='logo' className='sidebar-logo' />
           </Link>
         </div>
